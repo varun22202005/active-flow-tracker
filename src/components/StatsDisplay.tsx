@@ -7,7 +7,7 @@ import {
   Activity as ActivityIcon,
   Timer,
   Route,
-  Steps
+  ArrowDown
 } from 'lucide-react';
 import { ActivityStats, ActivityType } from '@/types/activity';
 

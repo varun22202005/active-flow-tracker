@@ -7,7 +7,7 @@ import StatsDisplay from '@/components/StatsDisplay';
 import { useToast } from '@/hooks/use-toast';
 import { Activity, ActivityData, ActivityStats } from '@/types/activity';
 import { generateRandomStats } from '@/lib/activityHelpers';
-import { Clock, MapPin, Navigation, Route, Steps } from 'lucide-react';
+import { Clock, MapPin, Navigation, Route, ArrowDown } from 'lucide-react';
 
 interface ActivityTrackerProps {
   activity: Activity;

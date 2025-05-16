@@ -7,7 +7,7 @@ import StatsDisplay from '@/components/StatsDisplay';
 import { useToast } from '@/hooks/use-toast';
 import { Activity, ActivityData, ActivityStats } from '@/types/activity';
 import { generateRandomStats } from '@/lib/activityHelpers';
-import { Clock, MapPin, Navigation } from 'lucide-react';
+import { Clock, MapPin, Navigation, Route, Steps } from 'lucide-react';
 
 interface ActivityTrackerProps {
   activity: Activity;
@@ -113,8 +113,8 @@ const ActivityTracker: React.FC<ActivityTrackerProps> = ({
               <p className="font-medium">{(Math.random() * 5 + 3).toFixed(2)} min/km</p>
             </div>
             <div className="text-center">
-              <p className="text-xs text-muted-foreground">Calories</p>
-              <p className="font-medium">{Math.floor(Math.random() * 500)}</p>
+              <p className="text-xs text-muted-foreground">Est. Steps</p>
+              <p className="font-medium">{Math.floor(Math.random() * 5000)}</p>
             </div>
           </div>
         </div>

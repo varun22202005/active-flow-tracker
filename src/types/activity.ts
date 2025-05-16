@@ -17,6 +17,7 @@ export interface ActivityStats {
   pace: string;
   calories: number;
   route?: string;
+  steps?: number;
 }
 
 export interface ActivityData {

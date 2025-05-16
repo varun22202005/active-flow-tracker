@@ -1,18 +1,22 @@
+
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { 
   TrendingUp, 
   Bike, 
   Activity as ActivityIcon,
-  Timer 
+  Timer,
+  Route,
+  Steps
 } from 'lucide-react';
 import { ActivityStats, ActivityType } from '@/types/activity';
 
 interface StatsDisplayProps {
   stats: ActivityStats;
+  className?: string;
 }
 
-const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats }) => {
+const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats, className }) => {
   const getActivityIcon = (activityType: ActivityType) => {
     switch (activityType) {
       case 'running':
@@ -29,7 +33,7 @@ const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats }) => {
   };
 
   return (
-    <Card className="p-4">
+    <Card className={`p-4 ${className || ''}`}>
       <div className="flex items-center text-lg font-semibold mb-2">
         {getActivityIcon(stats.activityType)}
         {stats.activityType.charAt(0).toUpperCase() + stats.activityType.slice(1)} Stats
@@ -52,8 +56,12 @@ const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats }) => {
           <p className="text-sm">{stats.pace} min/km</p>
         </div>
         <div>
-          <span className="text-sm font-medium text-muted-foreground">Calories:</span>
-          <p className="text-sm">{stats.calories} kcal</p>
+          <span className="text-sm font-medium text-muted-foreground">Route Followed:</span>
+          <p className="text-sm">{stats.route || 'Not available'}</p>
+        </div>
+        <div>
+          <span className="text-sm font-medium text-muted-foreground">Steps Taken:</span>
+          <p className="text-sm">{stats.steps?.toLocaleString() || 'Not tracked'}</p>
         </div>
       </div>
     </Card>

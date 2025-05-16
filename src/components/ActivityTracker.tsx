@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Timer from '@/components/Timer';
@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Activity, ActivityData, ActivityStats } from '@/types/activity';
 import { generateRandomStats } from '@/lib/activityHelpers';
 import { Clock, MapPin, Navigation, Route, ArrowDown } from 'lucide-react';
+import { getRandomQuote } from '@/lib/quoteHelpers';
 
 interface ActivityTrackerProps {
   activity: Activity;
@@ -23,7 +24,13 @@ const ActivityTracker: React.FC<ActivityTrackerProps> = ({
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [duration, setDuration] = useState(0);
+  const [motivationalQuote, setMotivationalQuote] = useState("");
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Load a motivational quote when component mounts
+    setMotivationalQuote(getRandomQuote());
+  }, []);
 
   const handleStart = () => {
     setIsActive(true);
@@ -59,6 +66,12 @@ const ActivityTracker: React.FC<ActivityTrackerProps> = ({
         </h2>
         <p className="text-muted-foreground">Track your performance</p>
       </div>
+
+      {!isActive && (
+        <div className="mb-6 p-4 bg-muted/30 rounded-lg text-center italic">
+          <p className="text-sm text-muted-foreground">{motivationalQuote}</p>
+        </div>
+      )}
 
       <div className="flex flex-col items-center mb-8">
         <Timer isRunning={isActive && !isPaused} className="mb-4" />

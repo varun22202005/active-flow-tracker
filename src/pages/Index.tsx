@@ -1,11 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   TrendingUp, 
   Bike, 
   Activity as ActivityIcon,
-  Timer 
+  Timer,
+  Calendar
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import ActivityCard from '@/components/ActivityCard';
 import ActivityTracker from '@/components/ActivityTracker';
 import ActivitySummary from '@/components/ActivitySummary';
@@ -101,13 +104,21 @@ const FitnessTracker = () => {
   return (
     <div className="min-h-screen bg-background pb-12">
       <header className="bg-gradient-fitness py-12 md:py-16 text-white">
-        <div className="container px-4 md:px-6">
-          <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">
-            Fitness Tracker
-          </h1>
-          <p className="text-white/90">
-            Monitor your activities and track your progress
-          </p>
+        <div className="container px-4 md:px-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">
+              Fitness Tracker
+            </h1>
+            <p className="text-white/90">
+              Monitor your activities and track your progress
+            </p>
+          </div>
+          <Button asChild variant="outline" className="text-white border-white hover:bg-white/20 hover:text-white">
+            <Link to="/history" className="flex items-center">
+              <Calendar className="mr-2 h-5 w-5" />
+              History
+            </Link>
+          </Button>
         </div>
       </header>
 
@@ -151,6 +162,14 @@ const FitnessTracker = () => {
 
             {/* Recent Activities */}
             <section className="bg-white rounded-xl p-6 shadow-md mt-8">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-display font-semibold">
+                  Recent Activities
+                </h2>
+                <Button asChild variant="ghost" size="sm">
+                  <Link to="/history">View All</Link>
+                </Button>
+              </div>
               <RecentActivities activities={activities} />
             </section>
           </>

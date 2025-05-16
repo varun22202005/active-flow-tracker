@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -12,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import ActivityCard from '@/components/ActivityCard';
 import ActivityTracker from '@/components/ActivityTracker';
 import ActivitySummary from '@/components/ActivitySummary';
-import DashboardStats from '@/components/DashboardStats';
 import RecentActivities from '@/components/RecentActivities';
 import { Activity, ActivityStats, ActivityData } from '@/types/activity';
 import { getActivities } from '@/lib/activityHelpers';
@@ -155,12 +153,7 @@ const FitnessTracker = () => {
               </div>
             </section>
 
-            {/* Dashboard Statistics */}
-            <section className="dashboard-gradient rounded-xl p-6 mt-8 shadow-md">
-              <DashboardStats activities={activities} />
-            </section>
-
-            {/* Recent Activities */}
+            {/* Recent Activities section - we're keeping this as it shows your activities */}
             <section className="bg-white rounded-xl p-6 shadow-md mt-8">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-display font-semibold">

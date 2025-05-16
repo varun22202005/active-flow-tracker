@@ -1,80 +1,59 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { ActivityStats } from '@/types/activity';
 import { 
-  Clock, 
-  Route, 
-  Navigation, 
   TrendingUp, 
   Bike, 
-  Swimming, 
-  Walking 
+  Activity as ActivityIcon,
+  Timer 
 } from 'lucide-react';
+import { ActivityStats, ActivityType } from '@/types/activity';
 
 interface StatsDisplayProps {
   stats: ActivityStats;
-  className?: string;
 }
 
-const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats, className }) => {
-  // Determine which icon to use based on activity type
-  const getActivityIcon = () => {
-    switch (stats.activityType) {
+const StatsDisplay: React.FC<StatsDisplayProps> = ({ stats }) => {
+  const getActivityIcon = (activityType: ActivityType) => {
+    switch (activityType) {
       case 'running':
-        return <TrendingUp className="h-6 w-6" />;
+        return <TrendingUp className="h-6 w-6 mr-2" />;
       case 'cycling':
-        return <Bike className="h-6 w-6" />;
+        return <Bike className="h-6 w-6 mr-2" />;
       case 'swimming':
-        return <Swimming className="h-6 w-6" />;
+        return <ActivityIcon className="h-6 w-6 mr-2" />;
       case 'walking':
-        return <Walking className="h-6 w-6" />;
+        return <Timer className="h-6 w-6 mr-2" />;
       default:
-        return <TrendingUp className="h-6 w-6" />;
+        return <TrendingUp className="h-6 w-6 mr-2" />;
     }
   };
 
   return (
-    <Card className={`stats-card ${className}`}>
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-display font-semibold flex items-center">
-          {getActivityIcon()}
-          <span className="ml-2 capitalize">{stats.activityType}</span>
-        </h3>
-        <span className="text-sm text-muted-foreground">{stats.date}</span>
+    <Card className="p-4">
+      <div className="flex items-center text-lg font-semibold mb-2">
+        {getActivityIcon(stats.activityType)}
+        {stats.activityType.charAt(0).toUpperCase() + stats.activityType.slice(1)} Stats
       </div>
-      
-      <div className="grid grid-cols-2 gap-4">
-        <div className="flex flex-col">
-          <span className="text-sm text-muted-foreground flex items-center mb-1">
-            <Clock className="h-4 w-4 mr-1" />
-            Time
-          </span>
-          <span className="text-lg font-semibold">{stats.time}</span>
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <span className="text-sm font-medium text-muted-foreground">Date:</span>
+          <p className="text-sm">{stats.date}</p>
         </div>
-        
-        <div className="flex flex-col">
-          <span className="text-sm text-muted-foreground flex items-center mb-1">
-            <Route className="h-4 w-4 mr-1" />
-            Distance
-          </span>
-          <span className="text-lg font-semibold">{stats.distance} km</span>
+        <div>
+          <span className="text-sm font-medium text-muted-foreground">Time:</span>
+          <p className="text-sm">{stats.time}</p>
         </div>
-        
-        <div className="flex flex-col">
-          <span className="text-sm text-muted-foreground flex items-center mb-1">
-            <Navigation className="h-4 w-4 mr-1" />
-            Avg. Pace
-          </span>
-          <span className="text-lg font-semibold">{stats.pace} min/km</span>
+        <div>
+          <span className="text-sm font-medium text-muted-foreground">Distance:</span>
+          <p className="text-sm">{stats.distance} km</p>
         </div>
-        
-        <div className="flex flex-col">
-          <span className="text-sm text-muted-foreground flex items-center mb-1">
-            <TrendingUp className="h-4 w-4 mr-1" />
-            Calories
-          </span>
-          <span className="text-lg font-semibold">{stats.calories}</span>
+        <div>
+          <span className="text-sm font-medium text-muted-foreground">Pace:</span>
+          <p className="text-sm">{stats.pace} min/km</p>
+        </div>
+        <div>
+          <span className="text-sm font-medium text-muted-foreground">Calories:</span>
+          <p className="text-sm">{stats.calories} kcal</p>
         </div>
       </div>
     </Card>

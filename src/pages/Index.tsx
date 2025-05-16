@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { 
   TrendingUp, 
   Bike, 
-  Walking, 
-  Swimming 
+  Activity as ActivityIcon,
+  Timer 
 } from 'lucide-react';
 import ActivityCard from '@/components/ActivityCard';
 import ActivityTracker from '@/components/ActivityTracker';
@@ -90,9 +90,9 @@ const FitnessTracker = () => {
       case 'cycling':
         return <Bike className="h-8 w-8 text-foreground" />;
       case 'swimming':
-        return <Swimming className="h-8 w-8 text-foreground" />;
+        return <ActivityIcon className="h-8 w-8 text-foreground" />;
       case 'walking':
-        return <Walking className="h-8 w-8 text-foreground" />;
+        return <Timer className="h-8 w-8 text-foreground" />;
       default:
         return <TrendingUp className="h-8 w-8 text-foreground" />;
     }

@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Timer from '@/components/Timer';
 import StatsDisplay from '@/components/StatsDisplay';
-import { useToast } from '@/components/ui/toast';
+import { useToast } from '@/hooks/use-toast';
 import { Activity, ActivityData, ActivityStats } from '@/types/activity';
 import { generateRandomStats } from '@/lib/activityHelpers';
 import { Clock, MapPin, Navigation } from 'lucide-react';

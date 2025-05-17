@@ -63,7 +63,7 @@ const History: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background pb-12">
-      <header className="bg-gradient-fitness py-8 md:py-10 text-white">
+      <header className="bg-gradient-to-br from-indigo-500 to-purple-600 py-8 md:py-10 text-white">
         <div className="container px-4 md:px-6">
           <Link to="/" className="inline-flex items-center text-white mb-4 hover:underline">
             <ChevronLeft className="mr-1 h-4 w-4" /> Back to Dashboard
@@ -78,23 +78,23 @@ const History: React.FC = () => {
       </header>
 
       <main className="container px-4 md:px-6 -mt-8">
-        <Card className="p-6 bg-white shadow-md">
+        <Card className="p-6 bg-white shadow-md border border-purple-100">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
             <Tabs 
               defaultValue="all" 
               className="w-full md:w-auto"
               onValueChange={(value) => setTimeframe(value)}
             >
-              <TabsList>
-                <TabsTrigger value="all">All Time</TabsTrigger>
-                <TabsTrigger value="weekly">Weekly</TabsTrigger>
-                <TabsTrigger value="monthly">Monthly</TabsTrigger>
+              <TabsList className="bg-purple-50">
+                <TabsTrigger value="all" className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-800">All Time</TabsTrigger>
+                <TabsTrigger value="weekly" className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-800">Weekly</TabsTrigger>
+                <TabsTrigger value="monthly" className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-800">Monthly</TabsTrigger>
               </TabsList>
             </Tabs>
             
             <div className="flex flex-col md:flex-row gap-3 md:items-center">
               <Select onValueChange={value => setFilterType(value === 'all' ? null : value)}>
-                <SelectTrigger className="w-full md:w-[180px]">
+                <SelectTrigger className="w-full md:w-[180px] border-purple-200">
                   <SelectValue placeholder="Filter by activity" />
                 </SelectTrigger>
                 <SelectContent>
@@ -109,7 +109,7 @@ const History: React.FC = () => {
               <Button 
                 variant="outline" 
                 onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 border-purple-200 hover:bg-purple-50"
               >
                 {sortOrder === 'asc' ? (
                   <>
@@ -130,15 +130,15 @@ const History: React.FC = () => {
           </div>
           
           <div className="my-6">
-            <h2 className="text-xl font-display font-semibold mb-4 flex items-center">
-              <Calendar className="mr-2 h-5 w-5" /> Activity List
+            <h2 className="text-xl font-display font-semibold mb-4 flex items-center text-purple-800">
+              <Calendar className="mr-2 h-5 w-5 text-purple-600" /> Activity List
             </h2>
             
             {filteredActivities.length === 0 ? (
-              <div className="text-center py-10 border border-dashed rounded-lg">
-                <p className="text-muted-foreground">No activities found</p>
-                <p className="text-sm">Try changing your filters or start tracking new activities</p>
-                <Button asChild className="mt-4">
+              <div className="text-center py-10 border border-dashed rounded-lg border-purple-200">
+                <p className="text-purple-700">No activities found</p>
+                <p className="text-sm text-purple-500">Try changing your filters or start tracking new activities</p>
+                <Button asChild className="mt-4 bg-purple-600 hover:bg-purple-700">
                   <Link to="/">Start New Activity</Link>
                 </Button>
               </div>

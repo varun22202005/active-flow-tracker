@@ -1,73 +1,21 @@
-# Welcome to your Lovable project
+Varun's Activity tracker:
 
-## Project info
+🧱 Tech Stack
+Vite – fast build tool
 
-**URL**: https://lovable.dev/projects/0fbd0ea4-6d7b-4517-9170-66a05d2ebf00
+React – UI library
 
-## How can I edit this code?
+TypeScript – type-safe JavaScript
 
-There are several ways of editing your application.
+Tailwind CSS – utility-first styling
 
-**Use Lovable**
+shadcn/ui – accessible, styled components
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0fbd0ea4-6d7b-4517-9170-66a05d2ebf00) and start prompting.
+To run or build the project, we have implemented : 
 
-Changes made via Lovable will be committed automatically to this repo.
+Node.js – JavaScript runtime
+npm – package manager for installing dependencies
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0fbd0ea4-6d7b-4517-9170-66a05d2ebf00) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+💬 Why this project?
+There’s a growing need for open, accurate activity tracking tools that respect user control and data ownership.
+No ads. No dark patterns. No Strava-style nonsense. Just clean, reliable, open tools built for people — not profit.
